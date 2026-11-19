@@ -15,11 +15,15 @@ public class SqlSmokeTest {
 
     @BeforeAll
     static void setup() throws Exception {
-        // Подключаемся к нашей БД в Docker
-        String url = "jdbc:postgresql://localhost:5432/testdb";
+        String dbHost = System.getenv("DB_HOST");
+        String dbPort = System.getenv("DB_PORT");
+
+        if (dbHost == null) dbHost = "localhost";
+        if (dbPort == null) dbPort = "5432";
+
+        String url = "jdbc:postgresql://" + dbHost + ":" + dbPort + "/testdb";
         connection = DriverManager.getConnection(url, "qa", "qa");
 
-        // Создаем таблицу для теста
         try (Statement stmt = connection.createStatement()) {
             stmt.execute("CREATE TABLE IF NOT EXISTS users (id SERIAL PRIMARY KEY, name VARCHAR(50));");
         }
