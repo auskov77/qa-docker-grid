@@ -1,0 +1,25 @@
+qa-docker-grid/
+├── pom.xml
+├── docker-compose.yml
+└── src/
+    ├── main/
+    │   └── java/            <-- (Пока пусто, сюда выносят Page Objects)
+    └── test/
+        ├── java/            <-- (Здесь наши тесты и инфраструктура)
+        │   └── org/example/ (или просто в корне пакета)
+        │       ├── DriverManager.java   <-- Создаем здесь
+        │       ├── BaseTest.java        <-- Создаем здесь
+        │       └── GridSmokeTest.java   <-- Наш тест
+        └── resources/
+            └── junit-platform.properties
+
+
+docker cp "C:\Users\Alex\IdeaProjects\qa-docker-grid\pom.xml" jenkins:/var/jenkins_home/workspace/qa-grid-pipeline/pom.xml
+
+docker cp "C:\Users\Alex\IdeaProjects\qa-docker-grid\src" jenkins:/var/jenkins_home/workspace/qa-grid-pipeline/src
+
+docker cp "C:\Users\Alex\IdeaProjects\qa-docker-grid\docker-compose.yml" jenkins:/var/jenkins_home/workspace/qa-grid-pipeline/docker-compose.yml
+
+docker cp "C:\Users\Alex\IdeaProjects\qa-docker-grid\src\test\java\DriverManager.java" jenkins:/var/jenkins_home/workspace/qa-grid-pipeline/src/test/java/org/example/DriverManager.java
+
+docker cp "C:\Users\Alex\IdeaProjects\qa-docker-grid\src\test\java\GridSmokeTest.java" jenkins:/var/jenkins_home/workspace/qa-grid-pipeline/src/test/java/org/example/GridSmokeTest.java
