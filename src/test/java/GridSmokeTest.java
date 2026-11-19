@@ -30,7 +30,7 @@ public class GridSmokeTest extends BaseTest {
     @Test
     void testFour() {
         WebDriver driver = DriverManager.getDriver();
-        driver.get("https://github.com");
-        assertEquals("https://github.com/", driver.getCurrentUrl());
+        driver.get("https://example.com"); // Легкий сайт
+        assertTrue(driver.getTitle().contains("Example Domain"));
     }
 }
