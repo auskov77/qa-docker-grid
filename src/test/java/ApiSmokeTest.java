@@ -4,7 +4,6 @@ import org.junit.jupiter.api.Test;
 
 import static io.restassured.RestAssured.given;
 import static org.hamcrest.Matchers.equalTo;
-import static org.hamcrest.Matchers.notNullValue;
 
 public class ApiSmokeTest {
 
@@ -59,21 +58,6 @@ public class ApiSmokeTest {
             }
             """;
 
-        // 2. Отправка POST-запроса
-//        given()
-//
-//                .header("Content-Type", "application/json")
-//                .body(requestBody)
-//                .when()
-//                .post("/users")
-//
-//                .then()
-//                .statusCode(201) // 201 Created - стандартный код для успешного создания
-//                .body("name", equalTo("Alex"))
-//                .body("job", equalTo("QA Engineer"))
-//                .body("id", notNullValue()) // Проверяем, что сервер присвоил ID
-//                .body("createdAt", notNullValue()); // И дату создания
-        // Вместо .then() используй .extract().response()
         io.restassured.response.Response response = given()
                 .header("Content-Type", "application/json")
                 .body(requestBody)
