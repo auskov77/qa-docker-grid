@@ -1,3 +1,4 @@
+import org.example.DriverManager;
 import org.junit.jupiter.api.AfterEach;
 
 public abstract class BaseTest {
