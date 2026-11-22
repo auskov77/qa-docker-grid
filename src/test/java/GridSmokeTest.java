@@ -2,7 +2,6 @@ import org.example.DriverManager;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.WebDriver;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class GridSmokeTest extends BaseTest {
